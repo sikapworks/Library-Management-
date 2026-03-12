@@ -11,9 +11,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+/* ADD THIS HERE */
+app.get("/", (req, res) => {
+  res.send("Library Management API is running 🚀");
+});
+
+/* Your API routes */
 app.use("/books", bookRoutes);
 
-// Connect to MongoDB
+/* Connect MongoDB */
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {
   console.log("MongoDB Connected");
